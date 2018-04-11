@@ -20,7 +20,7 @@ public class PongGame {
         MyKeyListener listener = new MyKeyListener();
         window.addKeyListener(listener);
         window.pack();
-        window.setSize(1280,720);
+        //window.setSize(1280,720);
         window.setVisible(true);
         boolean gameOver = false;
 

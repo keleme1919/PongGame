@@ -29,6 +29,6 @@ public class Displayables extends JComponent{
     }
 
     public Dimension getPreferredSize() {
-        return new Dimension(1280,720); // appropriate constants
+        return new Dimension(1280,662); // appropriate constants
     }
 }
