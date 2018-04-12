@@ -95,7 +95,7 @@ public class BallCollide{
                 xPlus = -1;
                 xCircled = false;
                 usableAngle = angleOut;
-                usableAngle -= -225;
+                usableAngle -= 225;
                 pixVar = 1 - (usableAngle / 45);
             }
             if (angleOut > 270 && angleOut <= 315) {
@@ -111,7 +111,7 @@ public class BallCollide{
                 xPlus = -1;
                 xCircled = true;
                 usableAngle = angleOut;
-                usableAngle -= -315;
+                usableAngle -= 315; //bug bug bug bug bug
                 pixVar = 1 - (usableAngle / 45);
             }
             //Utilizing the variables set above, calculate output xMod and yMod
