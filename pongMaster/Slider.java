@@ -24,7 +24,7 @@ public class Slider {
         if (y1Mod == -1.0 || y1Mod == 1.0 || y1Mod == 0.0) {
             if (y1Mod != 0.0) {
                 if (y1 > 0.0 && y1 < 542.0) {
-                    y1Mod = y1Mod * 1.3;
+                    y1Mod = y1Mod * 13;
                     y1 += y1Mod;
                     System.out.println(y1);
                     this.rect1.setRect(x1, y1,12,120);
@@ -51,5 +51,9 @@ public class Slider {
     }
     public Rectangle2D.Double getRect() {
         return rect1;
+    }
+
+    public double getSliderY() {
+        return y1;
     }
 }

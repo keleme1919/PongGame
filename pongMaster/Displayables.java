@@ -43,4 +43,23 @@ public class Displayables extends JComponent{
     public Dimension getPreferredSize() {
         return new Dimension(1280,662); // appropriate constants
     }
+
+    public double returnBallX() {
+        double xxx = ballOne.getBallX();
+        return xxx;
+    }
+
+    public double returnBallY() {
+        double yyy = ballOne.getBallY();
+        return yyy;
+    }
+
+    public double returnSlider1Y() {
+        double slide1Y = rect1.getSliderY();
+        return slide1Y;
+    }
+
+    public double returnSlider2Y() {
+        double slide2Y
+
 }

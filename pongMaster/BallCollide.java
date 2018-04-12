@@ -8,6 +8,8 @@ public class BallCollide{
     double yMod;
     boolean xCircled;
     double usableAngle;
+    double movementVar = 5;
+
     //previously booleans
     int yPlus;
     int xPlus;
@@ -18,9 +20,9 @@ public class BallCollide{
     public BallCollide(double x, double y){
         this.x = x;
         this.y = y;
-        xMod = 0;
-        yMod = 1;
-        angleOut = 180.0;
+        xMod = 0.125;
+        yMod = -1;
+        angleOut = 5.625;
     }
 
     /** if there is a collision, sets outgoing angle and xMod yMod cariables, if no collision,
@@ -28,10 +30,16 @@ public class BallCollide{
     */
     public void collision(double angleIn){
         this.angleIn = angleIn;
-
+        if (y < -1.0) {
+            y = -1.0;
+        }
+        if (y > 645.0) {
+            y = 645.0;
+        }
         //Master if: if collisioin with north/south wall
         if (y < 0 || y > 644){
             //figuring out outut andgle from inut andgle
+            System.out.println("Yes, it do go in here!");
             if (angleIn < 270 && angleIn > 90){
                 angleOut = (270 - angleIn) + 270;
                 if (angleOut > 360) {
@@ -49,7 +57,6 @@ public class BallCollide{
                     angleOut -= 360;
                 }
             }
-            System.out.println("before " + angleOut);
             //set variables based on the angle
             if (angleOut > 0 && angleOut <= 45) {
                 yPlus = -1;
@@ -128,8 +135,8 @@ public class BallCollide{
 
         }
         //x and y values get stored in variables
-        x += xMod;
-        y += yMod;
+        x += (xMod * movementVar);
+        y += (yMod * movementVar);
     }
 
     public double getX(){
@@ -140,6 +147,8 @@ public class BallCollide{
     }
     public double getAngle(){
         System.out.println(angleOut);
+        System.out.println(x);
+        System.out.println(y);
         return angleOut;
     }
 }
