@@ -129,6 +129,7 @@ public class BallCollide{
         return yMod;
     }
     public double getAngle(){
+        System.out.println(angleOut);
         return angleOut;
     }
 }
