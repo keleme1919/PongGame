@@ -60,6 +60,7 @@ public class Displayables extends JComponent{
     }
 
     public double returnSlider2Y() {
-        double slide2Y
-
+        double slide2Y = rect2.getSliderY();
+        return slide2Y;
+    }
 }

@@ -8,7 +8,7 @@ public class PongGame {
      */
     public static void main(String[] args) throws InterruptedException {
         double ballXMod;
-        double ballYMOD;
+        double ballYMod;
         double ballAngle;
         double ballX;
         double ballY;
@@ -32,6 +32,7 @@ public class PongGame {
         boolean gameOver = false;
         BallCollide wallCollider = new BallCollide(631.0, 322.0);
         // NEW OBJECT FOR SLIDER COLLISION HERE
+        CollisionBallSlider sliderCollider = new CollisionBallSlider();
         ballAngle = wallCollider.getAngle();
 
         // Create game state object
@@ -47,14 +48,14 @@ public class PongGame {
                 slider1y = display.returnSlider1Y();
                 slider2y = display.returnSlider2Y();
                 wallCollider.collision(ballAngle);
-                xxxxx.collision(ballX, ballY, slider1y, slider2y);
+                sliderCollider.collisionSlid(ballX, ballY, slider1y, slider2y);
                 //ballX = xyz.getX();
                 //ballY = xyz.getY();
-                boolean isSlider = xxxxx.collisionCheck();
+                boolean isSlider = sliderCollider.collisionCheck();
                 if (isSlider == true) {
-                    ballAngle = xxxxx.getAngle();
-                    ballXMod = xxxxx.getX();
-                    ballYMod = xxxxx.getY();
+                    ballAngle = sliderCollider.getAngle();
+                    ballXMod = sliderCollider.getX();
+                    ballYMod = sliderCollider.getY();
                 }
                 else {
                     ballAngle = wallCollider.getAngle();

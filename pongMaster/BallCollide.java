@@ -38,8 +38,8 @@ public class BallCollide{
         }
         //Master if: if collisioin with north/south wall
         if (y < 0 || y > 644){
-            //figuring out outut andgle from inut andgle
-            System.out.println("Yes, it do go in here!");
+            //figuring out outut andgle from input andgle
+            //System.out.println("Yes, it do go in here!");
             if (angleIn < 270 && angleIn > 90){
                 angleOut = (270 - angleIn) + 270;
                 if (angleOut > 360) {
