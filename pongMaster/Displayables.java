@@ -2,13 +2,14 @@ import java.awt.*;
 import javax.swing.*;
 import java.awt.geom.Ellipse2D.Double;
 import java.awt.geom.Ellipse2D;
+import java.awt.geom.Rectangle2D;
 /** Class for slider objects */
 public class Displayables extends JComponent{
     Slider rect1;
     Slider rect2;
     Ball ballOne;
-    Rectangle usableRect1;
-    Rectangle usableRect2;
+    Rectangle2D.Double usableRect1;
+    Rectangle2D.Double usableRect2;
     Ellipse2D.Double usableBallOne;
 
 
@@ -21,7 +22,7 @@ public class Displayables extends JComponent{
         ballOne = new Ball(631, 322);
     }
 
-    public void movement(int y1Mod, int y2Mod, double ballX, double ballY) {
+    public void movement(double y1Mod, double y2Mod, double ballX, double ballY) {
         rect1.move(y1Mod);
         rect2.move(y2Mod);
         ballOne.move(ballX, ballY);

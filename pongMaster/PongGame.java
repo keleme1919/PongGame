@@ -29,8 +29,8 @@ public class PongGame {
             // While Loop
 
                 // Keyboard listener moves slider
-                int y1Modifier = listener.gety1();
-                int y2Modifier = listener.gety2();
+                double y1Modifier = listener.gety1();
+                double y2Modifier = listener.gety2();
                 display.movement(y1Modifier, y2Modifier,0.5,0.0);
                 display.repaint();
                 // Ball somehow moves itself
