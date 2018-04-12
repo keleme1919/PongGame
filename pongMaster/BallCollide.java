@@ -7,6 +7,7 @@ public class BallCollide{
     double xMod;
     double yMod;
     boolean xCircled;
+    double usableAngle;
     //previously booleans
     int yPlus;
     int xPlus;
@@ -17,9 +18,9 @@ public class BallCollide{
     public BallCollide(double x, double y){
         this.x = x;
         this.y = y;
-        xMod = 0.125;
-        yMod = -1;
-        angleOut = 5.625;
+        xMod = 0;
+        yMod = 1;
+        angleOut = 180.0;
     }
 
     /** if there is a collision, sets outgoing angle and xMod yMod cariables, if no collision,
@@ -48,61 +49,70 @@ public class BallCollide{
                     angleOut -= 360;
                 }
             }
+            System.out.println("before " + angleOut);
             //set variables based on the angle
             if (angleOut > 0 && angleOut <= 45) {
                 yPlus = -1;
                 xPlus = 1;
                 xCircled = true;
-                pixVar = angleOut / 45;
+                usableAngle = angleOut;
+                pixVar = usableAngle / 45;
             }
             if (angleOut > 45 && angleOut <= 90) {
                 yPlus = -1;
                 xPlus = 1;
                 xCircled = false;
-                angleOut -= 45;
-                pixVar = 1 - (angleOut / 45);
+                usableAngle = angleOut;
+                usableAngle -= 45;
+                pixVar = 1 - (usableAngle / 45);
             }
             if (angleOut > 90 && angleOut <= 135) {
                 yPlus = 1;
                 xPlus = 1;
                 xCircled = false;
-                angleOut -= 90;
-                pixVar = angleOut / 45;
+                usableAngle = angleOut;
+                usableAngle -= 90;
+                pixVar = usableAngle / 45;
             }
             if (angleOut > 135 && angleOut <= 180) {
                 yPlus = 1;
                 xPlus = 1;
                 xCircled = true;
-                angleOut -= 135;
-                pixVar = 1 - (angleOut / 45);
+                usableAngle = angleOut;
+                usableAngle -= 135;
+                pixVar = 1 - (usableAngle / 45);
             }
             if (angleOut > 180 && angleOut <= 225) {
                 yPlus = 1;
                 xPlus = -1;
                 xCircled = true;
-                angleOut -= 180;
-                pixVar = angleOut / 45;
+                usableAngle = angleOut;
+                usableAngle -= 180;
+                pixVar = usableAngle / 45;
             }
             if (angleOut > 225 && angleOut <= 270) {
                 yPlus = 1;
                 xPlus = -1;
                 xCircled = false;
-                angleOut -= -225;
-                pixVar = 1 - (angleOut / 45);
+                usableAngle = angleOut;
+                usableAngle -= -225;
+                pixVar = 1 - (usableAngle / 45);
             }
             if (angleOut > 270 && angleOut <= 315) {
                 yPlus = -1;
                 xPlus = -1;
                 xCircled = false;
-                angleOut -= 270;
-                pixVar = angleOut / 45;
+                usableAngle = angleOut;
+                usableAngle -= 270;
+                pixVar = usableAngle / 45;
             }
             if (angleOut > 315 && angleOut <= 360) {
                 yPlus = -1;
                 xPlus = -1;
                 xCircled = true;
-                angleOut -= -315;
-                pixVar = 1 - (angleOut / 45);
+                usableAngle = angleOut;
+                usableAngle -= -315;
+                pixVar = 1 - (usableAngle / 45);
             }
             //Utilizing the variables set above, calculate output xMod and yMod
             if (xCircled == true) {
