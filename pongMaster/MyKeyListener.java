@@ -38,7 +38,7 @@ public class MyKeyListener implements KeyListener {
 
     public void keyTyped(KeyEvent e) {}
 
-    public int gety1() {
+    public double gety1() {
         if (y1up == true && y1down == true) {
             return 0;
         }
@@ -46,18 +46,18 @@ public class MyKeyListener implements KeyListener {
             //return y1;
         //}
         if (y1up == true) {
-            return -1;
+            return -1.0;
         }
         if (y1down == true) {
-            return 1;
+            return 1.0;
         }
         else {
-            return 0;
+            return 0.0;
         }
 
     }
 
-    public int gety2() {
+    public double gety2() {
         if (y2up == true && y2down == true) {
             return 0;
         }
@@ -65,13 +65,13 @@ public class MyKeyListener implements KeyListener {
         //    return y2;
         //}
         if (y2up == true) {
-            return -1;
+            return -1.0;
         }
         if (y2down == true) {
-            return 1;
+            return 1.0;
         }
         else {
-            return 0;
+            return 0.0;
         }
     }
 
