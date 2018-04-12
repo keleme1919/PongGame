@@ -7,6 +7,9 @@ public class PongGame {
      * @param args unused
      */
     public static void main(String[] args) throws InterruptedException {
+        double ballX;
+        double ballY;
+        double ballAngle;
         JFrame window = new JFrame("Pong");
         JPanel pane = new JPanel();
         JPanel pane2 = new JPanel();
@@ -23,6 +26,8 @@ public class PongGame {
         //window.setSize(1280,720);
         window.setVisible(true);
         boolean gameOver = false;
+        BallCollide xyz = new BallCollide(631.0, 322.0);
+        ballAngle = xyz.getAngle();
 
         // Create game state object
         while (gameOver == false) {
@@ -31,7 +36,11 @@ public class PongGame {
                 // Keyboard listener moves slider
                 double y1Modifier = listener.gety1();
                 double y2Modifier = listener.gety2();
-                display.movement(y1Modifier, y2Modifier,0.5,0.0);
+                xyz.collision(ballAngle);
+                ballX = xyz.getX();
+                ballY = xyz.getY();
+                ballAngle = xyz.getAngle();
+                display.movement(y1Modifier, y2Modifier, ballX, ballY);
                 display.repaint();
                 // Ball somehow moves itself
                 window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
