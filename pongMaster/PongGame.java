@@ -14,6 +14,7 @@ public class PongGame {
         double ballY;
         double slider1y;
         double slider2y;
+        double movementVar;
         JFrame window = new JFrame("Pong");
         JPanel pane = new JPanel();
         JPanel pane2 = new JPanel();
@@ -36,6 +37,7 @@ public class PongGame {
         ballAngle = wallCollider.getAngle();
         ballXMod = 1.0;
         ballYMod = 0.0;
+        movementVar = 8;
 
         // Create game state object
         while (gameOver == false) {
@@ -49,8 +51,8 @@ public class PongGame {
                 ballY = display.returnBallY();
                 slider1y = display.returnSlider1Y();
                 slider2y = display.returnSlider2Y();
-                wallCollider.collision(ballAngle, ballXMod, ballYMod);
-                sliderCollider.collisionSlid(ballX, ballY, slider1y, slider2y);
+                wallCollider.collision(ballAngle, ballXMod, ballYMod, movementVar);
+                sliderCollider.collisionSlid(ballX, ballY, slider1y, slider2y, movementVar);
                 //ballX = xyz.getX();
                 //ballY = xyz.getY();
                 boolean isSlider = sliderCollider.collisionCheck();
@@ -66,7 +68,7 @@ public class PongGame {
                     ballYMod = wallCollider.getY();
                     //System.out.println(ballAngle);
                 }
-                display.movement(y1Modifier, y2Modifier, ballXMod, ballYMod);
+                display.movement(y1Modifier, y2Modifier, ballXMod, ballYMod, movementVar);
                 display.repaint();
                 // Ball somehow moves itself
                 window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -75,7 +77,7 @@ public class PongGame {
                 if (ballX < 23 || ballX > 1240) {
                     gameOver = true;
                 }
-
+                movementVar = movementVar + 0.003;
                 //Thread.sleep(1 - totalTime);
                 Thread.sleep(15 - totalTime);
             }

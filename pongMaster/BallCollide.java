@@ -8,7 +8,7 @@ public class BallCollide{
     double yMod;
     boolean xCircled;
     double usableAngle;
-    double movementVar = 13;
+    double movementVar;
 
     //previously booleans
     int yPlus;
@@ -28,7 +28,8 @@ public class BallCollide{
     /** if there is a collision, sets outgoing angle and xMod yMod cariables, if no collision,
     *returns zeros and outgoing angle
     */
-    public void collision(double angleIn, double newXMod, double newYMod){
+    public void collision(double angleIn, double newXMod, double newYMod, double movementVar){
+        this.movementVar = movementVar;
         this.angleIn = angleIn;
         //System.out.println(angleIn);
         if (y < -1.0) {

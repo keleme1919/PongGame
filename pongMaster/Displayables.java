@@ -11,6 +11,7 @@ public class Displayables extends JComponent{
     Rectangle2D.Double usableRect1;
     Rectangle2D.Double usableRect2;
     Ellipse2D.Double usableBallOne;
+    double movementVar;
 
 
     /** creates object */
@@ -22,10 +23,11 @@ public class Displayables extends JComponent{
         ballOne = new Ball(631, 322);
     }
 
-    public void movement(double y1Mod, double y2Mod, double ballX, double ballY) {
+    public void movement(double y1Mod, double y2Mod, double ballX, double ballY, double movementVar) {
+        this.movementVar = movementVar;
         rect1.move(y1Mod);
         rect2.move(y2Mod);
-        ballOne.move(ballX, ballY);
+        ballOne.move(ballX, ballY, movementVar);
     }
 
     public void paintComponent(Graphics g) {

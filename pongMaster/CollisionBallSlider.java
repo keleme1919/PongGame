@@ -17,7 +17,7 @@ public class CollisionBallSlider{
     double usableAngle;
     int yPlus;
     int xPlus;
-    double movementVar = 16;
+    double movementVar;
     //keeps the value by which x or y needs to be modified, while the other value is modified by 1
     double pixVar;
 
@@ -26,7 +26,8 @@ public class CollisionBallSlider{
     public CollisionBallSlider(){
     }
 
-    public void collisionSlid(double ballX, double ballY, double sliderLY, double sliderRY){
+    public void collisionSlid(double ballX, double ballY, double sliderLY, double sliderRY, double movementVar){
+        this.movementVar = movementVar;
         this.ballX = ballX;
         this.ballY = ballY;
         this.sliderLY = sliderLY;
@@ -36,7 +37,7 @@ public class CollisionBallSlider{
         //left slider collision
         if (sliderLY <= absPos && absPos <= (sliderLY + 120)){
             if (ballX <= sliderLFrontX){
-                if (ballX > sliderLFrontX - 17){
+                if (ballX > sliderLFrontX - 25){
                     isCollision = true;
                     //find relative position of ball center to slider
                     relPos = absPos - sliderLY;
@@ -56,7 +57,7 @@ public class CollisionBallSlider{
 
         if (sliderRY <= absPos && absPos <= (sliderRY + 120)){
             if ((ballX + 18) >= sliderRFrontX){
-                if ((ballX + 18) < sliderRFrontX + 17){
+                if ((ballX + 18) < sliderRFrontX + 25){
                     isCollision = true;
                     //find relative position of ball center to slider
                     relPos = absPos - sliderRY;
