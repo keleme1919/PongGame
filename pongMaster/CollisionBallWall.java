@@ -1,5 +1,5 @@
 /** class to handle ball to wall collisions*/
-public class BallCollide{
+public class CollisionBallWall{
     double x;
     double y;
     double angleIn;
@@ -9,7 +9,7 @@ public class BallCollide{
     double movementVar;
 
     /** constructor */
-    public BallCollide(double x, double y, double xMod, double yMod, double angleOut){
+    public CollisionBallWall(double x, double y, double xMod, double yMod, double angleOut){
         this.x = x;
         this.y = y;
         this.xMod = xMod;
