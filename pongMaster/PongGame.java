@@ -22,6 +22,7 @@ public class PongGame implements Runnable {
         double y1Modifier = 0;
         double y2Modifier = 0;
         int rallyCounter = 0;
+        int longestRally = 0;
         JFrame window = new JFrame("Pong");
         JPanel pane = new JPanel();
         JPanel pane2 = new JPanel();
@@ -79,7 +80,7 @@ public class PongGame implements Runnable {
                         ballYMod = wallCollider.getY();
                         //System.out.println(ballAngle);
                     }
-                    display.movement(y1Modifier, y2Modifier, ballXMod, ballYMod, movementVar, playerOneScore, playerTwoScore, rallyCounter);
+                    display.movement(y1Modifier, y2Modifier, ballXMod, ballYMod, movementVar, playerOneScore, playerTwoScore, rallyCounter, longestRally);
                     display.repaint();
                     // Ball somehow moves itself
                     window.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -88,11 +89,17 @@ public class PongGame implements Runnable {
                     if (ballX < 23) {
                         playerTwoScore += 1;
                         gameOver = true;
+                        if (longestRally <= rallyCounter) {
+                            longestRally = rallyCounter;
+                        }
                     }
 
                     if (ballX > 1240) {
                         playerOneScore += 1;
                         gameOver = true;
+                        if (longestRally <= rallyCounter) {
+                            longestRally = rallyCounter;
+                        }
                     }
                     movementVar = movementVar + 0.006;
                     //Thread.sleep(1 - totalTime);
@@ -107,7 +114,7 @@ public class PongGame implements Runnable {
                 display.reset();
 
             movementVar = 0;
-            display.movement(y1Modifier, y2Modifier, ballXMod, ballYMod, movementVar, playerOneScore, playerTwoScore, rallyCounter);
+            display.movement(y1Modifier, y2Modifier, ballXMod, ballYMod, movementVar, playerOneScore, playerTwoScore, rallyCounter, longestRally);
             display.repaint();
         }
 

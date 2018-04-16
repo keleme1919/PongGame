@@ -30,6 +30,7 @@ public class PongGame2 implements Runnable {
         double y2Modifier = 0;
         double movementVar = 0;
         int rallyCounter = 0;
+        int longestRally = 0;
         JFrame window = new JFrame("Pong");
         JPanel pane = new JPanel();
         JPanel pane2 = new JPanel();
@@ -102,7 +103,7 @@ public class PongGame2 implements Runnable {
                         ballYMod = wallCollider.getY();
                         //System.out.println(ballAngle);
                     }
-                    display.movement(y1Modifier, y2Modifier, ballXMod, ballYMod, movementVar, playerOneScore, playerTwoScore, rallyCounter);
+                    display.movement(y1Modifier, y2Modifier, ballXMod, ballYMod, movementVar, playerOneScore, playerTwoScore, rallyCounter, longestRally);
                     display.repaint();
                 }
                 if (ballCheck == 1) {
@@ -140,7 +141,7 @@ public class PongGame2 implements Runnable {
                         ball2YMod = wallCollider2.getY();
                         //System.out.println(ballAngle);
                     }
-                    display.movement2(y1Modifier, y2Modifier, ballXMod, ballYMod, ball2XMod, ball2YMod, movementVar, playerOneScore, playerTwoScore, rallyCounter);
+                    display.movement2(y1Modifier, y2Modifier, ballXMod, ballYMod, ball2XMod, ball2YMod, movementVar, playerOneScore, playerTwoScore, rallyCounter, longestRally);
                     display.repaint();
                 }
                 if (ballCheck == 2) {
@@ -194,7 +195,7 @@ public class PongGame2 implements Runnable {
                         ball3YMod = wallCollider3.getY();
                         //System.out.println(ballAngle);
                     }
-                    display.movement3(y1Modifier, y2Modifier, ballXMod, ballYMod, ball2XMod, ball2YMod, ball3XMod, ball3YMod, movementVar, playerOneScore, playerTwoScore, rallyCounter);
+                    display.movement3(y1Modifier, y2Modifier, ballXMod, ballYMod, ball2XMod, ball2YMod, ball3XMod, ball3YMod, movementVar, playerOneScore, playerTwoScore, rallyCounter, longestRally);
                     display.repaint();
                 }
                 // Ball somehow moves itself
@@ -204,29 +205,47 @@ public class PongGame2 implements Runnable {
                 if (ballX < 23) {
                     playerTwoScore += 1;
                     gameOver = true;
+                    if (longestRally <= rallyCounter) {
+                        longestRally = rallyCounter;
+                    }
                 }
 
                 if (ballX > 1240) {
                     playerOneScore += 1;
                     gameOver = true;
+                    if (longestRally <= rallyCounter) {
+                        longestRally = rallyCounter;
+                    }
                 }
                 if (ball2X < 23) {
                     playerTwoScore += 1;
                     gameOver = true;
+                    if (longestRally <= rallyCounter) {
+                        longestRally = rallyCounter;
+                    }
                 }
 
                 if (ball2X > 1240) {
                     playerOneScore += 1;
                     gameOver = true;
+                    if (longestRally <= rallyCounter) {
+                        longestRally = rallyCounter;
+                    }
                 }
                 if (ball3X < 23) {
                     playerTwoScore += 1;
                     gameOver = true;
+                    if (longestRally <= rallyCounter) {
+                        longestRally = rallyCounter;
+                    }
                 }
 
                 if (ball3X > 1240) {
                     playerOneScore += 1;
                     gameOver = true;
+                    if (longestRally <= rallyCounter) {
+                        longestRally = rallyCounter;
+                    }
                 }
                 //Thread.sleep(1 - totalTime);
                 try {
@@ -241,14 +260,14 @@ public class PongGame2 implements Runnable {
             listener.reset();
         }
         movementVar = 0;
-        display.movement(y1Modifier, y2Modifier, ballXMod, ballYMod, movementVar, playerOneScore, playerTwoScore, rallyCounter);
+        display.movement(y1Modifier, y2Modifier, ballXMod, ballYMod, movementVar, playerOneScore, playerTwoScore, rallyCounter, longestRally);
         display.repaint();
 
                 // Call Display Slider
 
                 // Call Display Ball
 
-                //Sleep (Dan, NO SLEEP???)
+                //Sleep (Dan, NO SLEEP???)k
 
                 // end once winner
 

@@ -36,7 +36,7 @@ public class CollisionBallSlider{
                     //find relative position of ball center to slider
                     relPos = absPos - sliderLY;
                     //calculate angle
-                    angleOut = (relPos * 1.3125) + 11.25;
+                    angleOut = (relPos * 1.2166666) + 17;
                     //System.out.println(angleOut);
                 }
             }
@@ -56,7 +56,7 @@ public class CollisionBallSlider{
                     //find relative position of ball center to slider
                     relPos = absPos - sliderRY;
                     //calculate angle
-                    angleOut = (relPos * -1.3125) + 348.75;
+                    angleOut = (relPos * -1.2166666) + 343;
                     //System.out.println(angleOut);
                 }
             }

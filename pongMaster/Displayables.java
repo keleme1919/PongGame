@@ -27,6 +27,7 @@ public class Displayables extends JComponent {
     int playerOneScore;
     int playerTwoScore;
     int rallyCounter;
+    int longestRally;
     BufferedImage image;
 
 
@@ -55,7 +56,7 @@ public class Displayables extends JComponent {
         threeBallTrue = false;
     }
 
-    public void movement(double y1Mod, double y2Mod, double ballX, double ballY, double movementVar, int playerOneScore, int playerTwoScore, int rallyCounter) {
+    public void movement(double y1Mod, double y2Mod, double ballX, double ballY, double movementVar, int playerOneScore, int playerTwoScore, int rallyCounter, int longestRally) {
         this.movementVar = movementVar;
         rect1.move(y1Mod);
         rect2.move(y2Mod);
@@ -63,9 +64,10 @@ public class Displayables extends JComponent {
         this.playerOneScore = playerOneScore;
         this.playerTwoScore = playerTwoScore;
         this.rallyCounter = rallyCounter;
+        this.longestRally = longestRally;
     }
 
-    public void movement2(double y1Mod, double y2Mod, double ballX, double ballY, double ballX2, double ballY2, double movementVar, int playerOneScore, int playerTwoScore, int rallyCounter) {
+    public void movement2(double y1Mod, double y2Mod, double ballX, double ballY, double ballX2, double ballY2, double movementVar, int playerOneScore, int playerTwoScore, int rallyCounter, int longestRally) {
         twoBallTrue = true;
         this.movementVar = movementVar;
         rect1.move(y1Mod);
@@ -75,9 +77,10 @@ public class Displayables extends JComponent {
         this.playerOneScore = playerOneScore;
         this.playerTwoScore = playerTwoScore;
         this.rallyCounter = rallyCounter;
+        this.longestRally = longestRally;
     }
 
-    public void movement3(double y1Mod, double y2Mod, double ballX, double ballY, double ballX2, double ballY2, double ballX3, double ballY3, double movementVar, int playerOneScore, int playerTwoScore, int rallyCounter) {
+    public void movement3(double y1Mod, double y2Mod, double ballX, double ballY, double ballX2, double ballY2, double ballX3, double ballY3, double movementVar, int playerOneScore, int playerTwoScore, int rallyCounter, int longestRally) {
         threeBallTrue = true;
         this.movementVar = movementVar;
         rect1.move(y1Mod);
@@ -88,6 +91,7 @@ public class Displayables extends JComponent {
         this.playerOneScore = playerOneScore;
         this.playerTwoScore = playerTwoScore;
         this.rallyCounter = rallyCounter;
+        this.longestRally = longestRally;
     }
 
     public void paintComponent(Graphics g) {
@@ -117,7 +121,8 @@ public class Displayables extends JComponent {
         g2.drawString("Player One Score: " + playerOneScore, 80, 30);
         g2.drawString("Player Two Score: " + playerTwoScore, 950, 30);
         g2.setFont(otherFont);
-        g2.drawString("Rally counter: " + rallyCounter, 564, 600);
+        g2.drawString("Rally Counter: " + rallyCounter, 564, 600);
+        g2.drawString("Longest Rally: " + longestRally, 564, 624);
         g2.setFont(myFont);
         if (playerOneScore == 5) {
             g2.drawString("Player One Wins!!!", 538, 255);
