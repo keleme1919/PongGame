@@ -1,3 +1,4 @@
+package pongpackage;
 /** class to handle ball to wall collisions*/
 public class CollisionBallWall{
     double x;

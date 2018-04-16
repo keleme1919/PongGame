@@ -1,3 +1,4 @@
+package pongpackage;
 public class Collision{
     double angleOut;
     double xMod;

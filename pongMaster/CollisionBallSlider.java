@@ -1,3 +1,4 @@
+package pongpackage;
 /** class to handle ball to slider collisions*/
 public class CollisionBallSlider{
     boolean isCollision;

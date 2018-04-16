@@ -1,12 +1,14 @@
+package pongpackage;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 /** Main game class */
-public class PongGame2 {
-    /** Main method
-     * @param args unused
+public class PongGame2 implements Runnable {
+
+    public PongGame2() {}
+    /** Main run method
      */
-    public static void main(String[] args) throws InterruptedException {
+    public void run() {
         double ballXMod = 0;
         double ballYMod = 0;
         double ball2XMod;
@@ -196,7 +198,7 @@ public class PongGame2 {
                     display.repaint();
                 }
                 // Ball somehow moves itself
-                window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                window.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
                 long endTime = System.currentTimeMillis();
                 long totalTime = endTime - startTime;
                 if (ballX < 23) {
@@ -227,7 +229,10 @@ public class PongGame2 {
                     gameOver = true;
                 }
                 //Thread.sleep(1 - totalTime);
-                Thread.sleep(18 - totalTime);
+                try {
+                    Thread.sleep(17 - totalTime);
+                }
+                catch(InterruptedException e) {}
             }
             if (playerOneScore < 5 && playerTwoScore < 5) {
                 rallyCounter = 0;
