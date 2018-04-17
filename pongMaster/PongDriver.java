@@ -35,18 +35,6 @@ public class PongDriver {
         window.setVisible(true);
         window.setLocation(800,500);
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        /*while (true) {
-            boolean click = listener1.getResult();
-            boolean click2 = listener2.getResult();
-            if (click == true) {
-                click = false;
-                PongGame.main(args);
-            }
-            if (click2 == true) {
-                click2 = false;
-                PongGame2.main(args);
-            }
-        }*/
     }
 
 }

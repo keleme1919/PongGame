@@ -1,5 +1,7 @@
 package pongpackage;
+/** Class for determining the x and y mod for the ball */
 public class Collision{
+    // Instance variable declarations
     double angleOut;
     double xMod;
     double yMod;
@@ -10,13 +12,14 @@ public class Collision{
     int xPlus;
     //keeps the value by which x or y needs to be modified, while the other value is modified by 1
     double pixVar;
-    /** constructor */
+    /** Constructor for collision instance */
     public Collision(){
     }
-    /** method to set variable mods based on outgoing angle */
+    /** method to set variable mods based on outgoing angle
+     * @param angleOut the new angular direction to calculate x and y for
+     */
     public void angleToXYmod(double angleOut){
         this.angleOut = angleOut;
-
         //setting variables based on the angle and
         //Utilizing the variables set above, calculate output xMod and yMod
         if (angleOut > 0 && angleOut <= 90) {
@@ -47,13 +50,16 @@ public class Collision{
 
 
     }
+    /** returns xMod for ball
+     * @return the xMod
+     */
     public double getX(){
         return xMod;
     }
+    /** returns yMod for ball
+     * @return the yMod
+     */
     public double getY(){
         return yMod;
     }
-
-
-
 }
