@@ -21,7 +21,13 @@ public class CollisionBallSlider{
     /** constructor */
     public CollisionBallSlider(){
     }
-
+    /** Method for creating slider collisions
+     * @param ballX x of ball
+     * @param ballY y of ball
+     * @param sliderLY left slider y
+     * @param sliderRY right slider y
+     * @param movementVar amount to move ball
+     */
     public void collisionSlid(double ballX, double ballY, double sliderLY, double sliderRY, double movementVar){
         this.movementVar = movementVar;
         this.ballX = ballX;
@@ -72,6 +78,9 @@ public class CollisionBallSlider{
         yMod = coli.getY();
 
     }
+    /** Checks if collision occured
+     * @return boolean result of collision check
+     */
     public boolean collisionCheck(){
         if (isCollision == true){
             isCollision = false;
