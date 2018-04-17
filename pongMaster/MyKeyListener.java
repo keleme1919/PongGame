@@ -1,12 +1,15 @@
 package pongpackage;
 import java.awt.event.*;
+/** keylistener class to handle user input (slider upp and down, add ball)*/
 public class MyKeyListener implements KeyListener {
     boolean y1up;
     boolean y1down;
     boolean y2up;
     boolean y2down;
     int ballNumber = 0;
-
+    /** method to store key press data in variables
+    * @param e key press event
+    */
     public void keyPressed(KeyEvent e) {
         int code = e.getKeyCode();
         if (code == KeyEvent.VK_W) {
@@ -29,6 +32,10 @@ public class MyKeyListener implements KeyListener {
 
 
     }
+    /** method to store key release dqta in variables
+    * important for the smooth operation of the slider
+    * @param e key release event
+    */
     public void keyReleased(KeyEvent e) {
         int code = e.getKeyCode();
         if (code == KeyEvent.VK_W) {
@@ -44,16 +51,17 @@ public class MyKeyListener implements KeyListener {
             y2down = false;
         }
     }
-
+    /** method must be declared
+    * @param e key typed event*/
     public void keyTyped(KeyEvent e) {}
-
+    /** returns the required mod of the slider y coordinate
+    * based on the key press/release
+    * @return 0 if no input was detected, 1/-1 otherwise, depending on up/down input
+    */
     public double gety1() {
         if (y1up == true && y1down == true) {
             return 0;
         }
-        //if (y1up == true || y1down == true) {
-            //return y1;
-        //}
         if (y1up == true) {
             return -1.0;
         }
@@ -65,14 +73,14 @@ public class MyKeyListener implements KeyListener {
         }
 
     }
-
+    /** returns the required mod of slider2 y coordinate
+    * based on the key press/release
+    * @return 0 if no input was detected, 1/-1 otherwise, depending on up/down input
+    */
     public double gety2() {
         if (y2up == true && y2down == true) {
             return 0;
         }
-        //if (y2up == true || y2down == true){
-        //    return y2;
-        //}
         if (y2up == true) {
             return -1.0;
         }
@@ -83,23 +91,12 @@ public class MyKeyListener implements KeyListener {
             return 0.0;
         }
     }
-
+    /** @return number of balls currently in game */
     public int ballStatus() {
         return ballNumber;
     }
-
+    /** resets ball number*/
     public void reset() {
         ballNumber = 0;
     }
-
-
-
-
 }
-
-
-
-    //create what to listen for and what to return when recieved
-        // If key is pressed for slider down, return 1
-        // If no key is pressed, return 0
-        // if key is pressed for slider up, return -1
