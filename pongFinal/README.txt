@@ -23,7 +23,7 @@ command prompt, but changing "false" to "true".
 **************************************************************************
 
 In order to run this game, first make sure your command line has accessed
-the pongMaster directory.
+the pongFinal directory.
 
 Then, compile the code using this command:
 
