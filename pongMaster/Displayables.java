@@ -9,7 +9,7 @@ import java.io.File;
 import java.io.IOException;
 import java.awt.image.BufferedImage;
 
-/** Class for slider objects */
+/**  */
 public class Displayables extends JComponent {
     Slider rect1;
     Slider rect2;

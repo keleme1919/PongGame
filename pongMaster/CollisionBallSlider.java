@@ -8,7 +8,9 @@ public class CollisionBallSlider{
     double sliderRY;
     int sliderLFrontX = 72;
     int sliderRFrontX = 1208;
+    //position of ball impact on slider in terms of pixels
     double absPos;
+    //position of ball impact on slider in terms of slider length (0-120pixels)
     double relPos;
     double angleOut;
 
